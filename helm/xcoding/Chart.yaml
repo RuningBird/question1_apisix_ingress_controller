@@ -22,3 +22,12 @@ version: 0.1.0
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "1.16.0"
+
+# APISIX and APISIX Ingress Controller versions
+dependencies:
+  - name: apisix
+    version: 2.11.6
+    repository: https://charts.apiseven.com
+  - name: apisix-ingress-controller
+    version: 1.0.5
+    repository: https://charts.apiseven.com
