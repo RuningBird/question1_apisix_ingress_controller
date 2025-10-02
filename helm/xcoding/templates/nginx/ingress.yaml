@@ -1,21 +1,21 @@
-{{- if .Values.ingress.enabled -}}
+{{- if .Values.nginx.ingress.enabled -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "xcoding.fullname" . }}
+  name: {{ include "xcoding.nginx.fullname" . }}
   labels:
-    {{- include "xcoding.labels" . | nindent 4 }}
-  {{- with .Values.ingress.annotations }}
+    {{- include "xcoding.nginx.labels" . | nindent 4 }}
+  {{- with .Values.nginx.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  {{- with .Values.ingress.className }}
+  {{- with .Values.nginx.ingress.className }}
   ingressClassName: {{ . }}
   {{- end }}
-  {{- if .Values.ingress.tls }}
+  {{- if .Values.nginx.ingress.tls }}
   tls:
-    {{- range .Values.ingress.tls }}
+    {{- range .Values.nginx.ingress.tls }}
     - hosts:
         {{- range .hosts }}
         - {{ . | quote }}
@@ -24,7 +24,7 @@ spec:
     {{- end }}
   {{- end }}
   rules:
-    {{- range .Values.ingress.hosts }}
+    {{- range .Values.nginx.ingress.hosts }}
     - host: {{ .host | quote }}
       http:
         paths:
@@ -35,9 +35,9 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "xcoding.fullname" $ }}
+                name: {{ include "xcoding.nginx.fullname" $ }}
                 port:
-                  number: {{ $.Values.service.port }}
+                  number: {{ $.Values.nginx.service.port }}
           {{- end }}
     {{- end }}
 {{- end }}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "xcoding.nginx.fullname" . }}-test-connection"
+  labels:
+    {{- include "xcoding.nginx.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "xcoding.nginx.fullname" . }}:{{ .Values.nginx.service.port }}']
+  restartPolicy: Never
