@@ -15,6 +15,7 @@ flowchart TD
     D --> E[Kubernetes API Server]
     E --> F[Etcd<br/>存储网关配置]
     C --> G[后端服务 Pod]
+    G-->H[示例nginx服务]
     
     subgraph K8s集群
         C
