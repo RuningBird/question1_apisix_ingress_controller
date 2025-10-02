@@ -1,11 +1,11 @@
-{{- if .Values.nginx.apisixRoute.enabled -}}
+{{- if .Values.apisixRoute.enabled -}}
 apiVersion: apisix.apache.org/v2
 kind: ApisixRoute
 metadata:
   name: {{ include "xcoding.nginx.fullname" . }}
   labels:
     {{- include "xcoding.nginx.labels" . | nindent 4 }}
-  {{- with .Values.nginx.apisixRoute.annotations }}
+  {{- with .Values.apisixRoute.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
@@ -14,9 +14,9 @@ spec:
     - name: main
       match:
         hosts:
-          - {{ .Values.nginx.apisixRoute.host }}
+          - {{ .Values.apisixRoute.host }}
         paths:
-          - {{ .Values.nginx.apisixRoute.path }}
+          - {{ .Values.apisixRoute.path }}
       backends:
         - serviceName: {{ include "xcoding.nginx.fullname" . }}
           servicePort: {{ .Values.nginx.service.port }}

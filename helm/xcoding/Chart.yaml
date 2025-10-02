@@ -28,6 +28,8 @@ dependencies:
   - name: apisix
     version: 2.11.6
     repository: https://charts.apiseven.com
+    condition: apisix.enabled
   - name: apisix-ingress-controller
     version: 1.0.5
     repository: https://charts.apiseven.com
+    condition: apisix-ingress-controller.enabled

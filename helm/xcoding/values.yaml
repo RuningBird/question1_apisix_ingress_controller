@@ -127,16 +127,21 @@ nginx:
 
   affinity: {}
 
+# Configuration for apisix dependency
+apisix:
+  enabled: true
+
 # Configuration for apisix-ingress-controller dependency
 apisix-ingress-controller:
+  enabled: true
   config:
     kubernetes:
       ingressClass: "xcoding-apisix"
       defaultIngressClass: false
 
-
-  apisixRoute:
-    enabled: true
-    host: "xcoding.local"
-    path: "/nginx/*"
-    annotations: {}
+# APISIX Route configuration
+apisixRoute:
+  enabled: true
+  host: "xcoding.local"
+  path: "/nginx/*"
+  annotations: {}
