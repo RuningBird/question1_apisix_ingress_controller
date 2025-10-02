@@ -16,8 +16,6 @@ flowchart TD
     E --> F[Etcd<br/>存储网关配置]
     C --> G[后端服务 Pod]
     
-    H[运维人员<br/>通过kubectl应用配置] --> E
-    
     subgraph K8s集群
         C
         D
