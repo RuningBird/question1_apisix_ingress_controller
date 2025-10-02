@@ -76,11 +76,7 @@ nginx:
     #      - chart-example.local
 
   # This block is for setting up the ApisixRoute for more information can be found here: https://apisix.apache.org/docs/apisix/next/apisix-route/
-  apisixRoute:
-    enabled: true
-    host: "xcoding.local"
-    path: "/nginx/*"
-    annotations: {}
+
 
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
@@ -137,3 +133,10 @@ apisix-ingress-controller:
     kubernetes:
       ingressClass: "xcoding-apisix"
       defaultIngressClass: false
+
+
+  apisixRoute:
+    enabled: true
+    host: "xcoding.local"
+    path: "/nginx/*"
+    annotations: {}
