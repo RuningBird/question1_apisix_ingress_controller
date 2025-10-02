@@ -75,6 +75,13 @@ nginx:
     #    hosts:
     #      - chart-example.local
 
+  # This block is for setting up the ApisixRoute for more information can be found here: https://apisix.apache.org/docs/apisix/next/apisix-route/
+  apisixRoute:
+    enabled: true
+    host: "xcoding.local"
+    path: "/nginx/*"
+    annotations: {}
+
   resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
