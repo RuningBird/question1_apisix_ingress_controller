@@ -123,3 +123,10 @@ nginx:
   tolerations: []
 
   affinity: {}
+
+# Configuration for apisix-ingress-controller dependency
+apisix-ingress-controller:
+  config:
+    kubernetes:
+      ingressClass: "xcoding-apisix"
+      defaultIngressClass: false
